@@ -7,7 +7,7 @@ import styles from './styles';
 // This component only supports MaterialIcons
 const NavigationIcon = ({ onEventTouch, icon, size, color }) => {
     return (
-        <TouchableOpacity style={styles.touch} onPress={onEventTouch} >
+        <TouchableOpacity testID={`arrow-${icon}`} style={styles.touch} onPress={onEventTouch} >
             <Icon name={icon} size={size ? size : 50} color={color ? color : "#fff"} />
         </TouchableOpacity>
     );
