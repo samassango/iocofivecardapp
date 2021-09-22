@@ -4,8 +4,8 @@ import NavigationIcon from '../src/components/navigationicon';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-
-const navIconTree = renderer.create(<NavigationIcon icon={"navigate-before"} onEventTouch={() => console.log('navigate-before')} />);
+const mockFn = jest.fn();
+const navIconTree = renderer.create(<NavigationIcon icon={"navigate-before"} onEventTouch={mockFn} />);
 
 it('renders navigationicon component correctly', () => {
   expect(navIconTree).toMatchSnapshot();
@@ -18,3 +18,8 @@ it('Check prop icon matches', () => {
 it('Check prop onEventTouch matches', () => {
   expect(navIconTree.root.props.onEventTouch).toBeTruthy();
 });
+
+// it('Event triggered on icon click', () => {
+//   navIconTree.toJSON().props.onPress();
+//   expect(mockFn).toBeCalled();
+// })
